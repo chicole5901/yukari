@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>文学ツーリング | コンセプト</title>
+    <meta name="description" content="文学作品の舞台を地図で巡るコンセプトサイト。My Maps を埋め込み、作品別のルートや場所を紹介します。" />
+    <meta property="og:title" content="文学ツーリング | コンセプト" />
+    <meta property="og:description" content="文学作品の舞台を地図で巡るコンセプトサイト。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* スクロール時にiframeの上でのスクロールジャンクを抑制 */
+      .map-embed iframe { width: 100%; height: 100%; border: 0; }
+    </style>
+  </head>
+  <body class="bg-neutral-50 text-neutral-900">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-neutral-200">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+        <h1 class="text-lg sm:text-xl font-semibold tracking-tight">文学ツーリング（コンセプト）</h1>
+        <nav class="text-sm text-neutral-600 flex gap-4">
+          <a href="#map" class="hover:text-black">地図</a>
+          <a href="#routes" class="hover:text-black">特集ルート</a>
+          <a href="#about" class="hover:text-black">このサイトについて</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-white to-neutral-100 border-b border-neutral-200">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        <div class="grid lg:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold leading-tight">文学作品の舞台へ、地図で旅する。</h2>
+            <p class="mt-3 text-neutral-700">開発初期は Google My Maps を使って編集者が選んだ場所を公開。反応が得られたら、ユーザー投稿・ルート作成へ段階的に拡張します。</p>
+            <div class="mt-5 flex gap-3">
+              <a href="#map" class="px-4 py-2 rounded-2xl bg-black text-white text-sm font-medium shadow hover:opacity-90">地図を見る</a>
+              <a href="#routes" class="px-4 py-2 rounded-2xl bg-white border text-sm font-medium shadow-sm hover:bg-neutral-50">特集ルート</a>
+            </div>
+          </div>
+          <div class="aspect-video rounded-3xl overflow-hidden shadow-lg border border-neutral-200 bg-white p-1">
+            <!-- ここに地図の縮小プレビューを入れてもOK（静止画像） -->
+            <div class="w-full h-full grid place-items-center text-neutral-500 text-sm">Map Preview</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map -->
+    <section id="map" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+      <div class="grid lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2">
+          <div class="rounded-3xl overflow-hidden border border-neutral-200 shadow-sm map-embed aspect-[16/10]">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1CMF6doUFUaBFKb80h5Inik9xX4V88K4&ehbc=2E312F" width="640" height="480"></iframe>
+          </div>
+          <p class="mt-2 text-xs text-neutral-500">© Google • マップデータに関する表記は My Maps の規約に準拠します。</p>
+        </div>
+        <aside class="lg:col-span-1">
+          <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-sm">
+            <h3 class="text-base font-semibold">最新の追加</h3>
+            <ul id="latest-list" class="mt-3 space-y-3 text-sm">
+              <!-- 初期は手書きでOK。将来はCMS/スプレッドシートから自動生成 -->
+              <li class="flex gap-3">
+                <span class="shrink-0 w-2 h-2 mt-2 rounded-full bg-black"></span>
+                <div>
+                  <div class="font-medium">（例）坊っちゃん：下宿周辺</div>
+                  <div class="text-neutral-600">愛媛・道後温泉付近。第3章の描写に合わせて…</div>
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <span class="shrink-0 w-2 h-2 mt-2 rounded-full bg-black"></span>
+                <div>
+                  <div class="font-medium">（例）羅生門：門跡</div>
+                  <div class="text-neutral-600">京都・朱雀門跡に比定される地点の一つ…</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Featured Routes -->
+    <section id="routes" class="bg-white border-y border-neutral-200">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+        <h3 class="text-xl font-bold">特集ルート</h3>
+        <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- ルートカード（手作業でOK。将来はCMSから供給） -->
+          <article class="rounded-3xl border border-neutral-200 bg-white shadow-sm overflow-hidden">
+            <div class="aspect-video bg-neutral-100 grid place-items-center text-sm text-neutral-500">Route Cover</div>
+            <div class="p-5">
+              <h4 class="font-semibold">（例）夏目漱石ゆかりの地・松山</h4>
+              <p class="mt-2 text-sm text-neutral-700">坊っちゃんの舞台を半日で巡る。道後温泉〜学校跡〜…</p>
+              <div class="mt-4 flex items-center gap-3 text-xs text-neutral-600">
+                <span>距離：約4.2km</span>
+                <span>所要：3時間</span>
+              </div>
+              <div class="mt-4">
+                <a class="inline-block px-3 py-2 text-sm rounded-xl border hover:bg-neutral-50" href="#map">マップで見る</a>
+              </div>
+            </div>
+          </article>
+          <!-- 追加カード… -->
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2">
+          <h3 class="text-xl font-bold">このサイトについて</h3>
+          <p class="mt-3 text-neutral-700">編集者が選んだ文学作品の舞台を Google My Maps に整理し、地図上で巡れるようにした非公式コンセプトです。掲載情報は一次資料の確認を心がけていますが、正確性は保証できません。誤りやご意見はお問い合わせからお知らせください。</p>
+          <ul class="mt-4 list-disc list-inside text-neutral-700 text-sm">
+            <li>マップ提供：Google My Maps</li>
+            <li>写真・引用の権利表記：各出典に準拠</li>
+            <li>将来的にユーザー投稿／ルート自動生成に対応予定</li>
+          </ul>
+        </div>
+        <aside>
+          <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-sm">
+            <h4 class="font-semibold">お問い合わせ</h4>
+            <p class="mt-2 text-sm text-neutral-700">ご提案・訂正は <a href="mailto:contact@example.com" class="underline">contact@example.com</a> まで。</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-neutral-200 py-8 text-center text-sm text-neutral-600">
+      <p>© <span id="year"></span> Bungaku Touring (Concept)</p>
+      <p class="mt-1">This site uses Google My Maps. © Google</p>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
